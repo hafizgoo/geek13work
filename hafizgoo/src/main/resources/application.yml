@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    #集群地址
+    bootstrap-servers: 127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094
+    #生产者
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer:  org.apache.kafka.common.serialization.StringSerializer
+      #消费者
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #消费分组id
+      group-id: testGroup1
+      #自动提交
+      enable-auto-commit: false
+    listener:
+      ack-mode: manual_immediate
+
